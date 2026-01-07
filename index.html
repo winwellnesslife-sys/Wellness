@@ -14,13 +14,11 @@
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfdfd; overflow-x: hidden; }
         
-        /* Premium Background Gradient */
         .hero-bg {
             background: radial-gradient(circle at top right, rgba(20, 184, 166, 0.08), transparent),
                         radial-gradient(circle at bottom left, rgba(15, 118, 110, 0.05), transparent);
         }
 
-        /* Glassmorphism Navigation */
         .glass-nav {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(15px);
@@ -28,14 +26,12 @@
             border-bottom: 1px solid rgba(0, 0, 0, 0.03);
         }
 
-        /* Sophisticated Text Logo Styling */
         .text-logo {
             font-size: 1.6rem;
             letter-spacing: -0.02em;
             color: #134e4a;
         }
 
-        /* Card Softness */
         .glass-card {
             background: white;
             border: 1px solid rgba(0, 0, 0, 0.04);
@@ -46,11 +42,13 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
         }
 
-        /* Smooth Input Focus */
         input:focus, select:focus, textarea:focus {
             border-color: #14b8a6 !important;
             box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.1);
         }
+
+        /* Smooth page transitions */
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body class="text-slate-800">
@@ -81,7 +79,7 @@
                 <a href="#register" class="bg-slate-900 text-white px-12 py-5 rounded-full text-lg font-medium hover:bg-teal-900 transition-all transform hover:scale-105 shadow-2xl">
                     Claim Your Free Access
                 </a>
-                <p class="text-sm text-slate-400 font-medium tracking-wide italic">Limited to 50 participants</p>
+                <p class="text-sm text-slate-400 font-medium tracking-wide italic">Saturday, Jan 10th | Online</p>
             </div>
         </div>
     </header>
@@ -118,11 +116,11 @@
                 <h2 class="text-4xl md:text-5xl font-light mb-8 leading-tight">Secure your spot for <br><span class="text-teal-400 italic">This Saturday.</span></h2>
                 <div class="space-y-8">
                     <div class="group">
-                        <p class="text-teal-400 font-bold mb-2">01 — Practical Tools</p>
+                        <p class="text-teal-400 font-bold mb-2 uppercase text-xs tracking-widest">01 — Practical Tools</p>
                         <p class="text-slate-400 font-light leading-relaxed">Walk away with the 5-4-3-2-1 grounding method and a 5-minute peace routine.</p>
                     </div>
                     <div class="group">
-                        <p class="text-teal-400 font-bold mb-2">02 — Science of Stress</p>
+                        <p class="text-teal-400 font-bold mb-2 uppercase text-xs tracking-widest">02 — Science of Stress</p>
                         <p class="text-slate-400 font-light leading-relaxed">Finally understand why your brain chooses anxiety and how to rewire that response.</p>
                     </div>
                 </div>
@@ -139,12 +137,12 @@
                         <option>Age: 36 - 50</option>
                         <option>Age: 51 - 65+</option>
                     </select>
-                    <textarea name="message" rows="3" placeholder="What would you like to focus on most?" class="w-full bg-slate-50 px-6 py-4 rounded-2xl border border-slate-100 outline-none transition"></textarea>
+                    <textarea name="message" rows="3" placeholder="What is your biggest stress trigger?" class="w-full bg-slate-50 px-6 py-4 rounded-2xl border border-slate-100 outline-none transition"></textarea>
                     
-                    <button type="submit" class="w-full bg-teal-600 text-white py-5 rounded-2xl font-bold text-lg hover:bg-teal-700 shadow-xl transition active:scale-95">
+                    <button type="submit" id="submitBtn" class="w-full bg-teal-600 text-white py-5 rounded-2xl font-bold text-lg hover:bg-teal-700 shadow-xl transition active:scale-95">
                         Register for Masterclass
                     </button>
-                    <p class="text-[10px] text-center text-slate-400 uppercase tracking-widest pt-4">No spam. Only peace. Privacy guaranteed.</p>
+                    <p class="text-[10px] text-center text-slate-400 uppercase tracking-widest pt-4 font-bold">winwellnesslife@gmail.com</p>
                 </form>
             </div>
         </div>
@@ -154,28 +152,68 @@
         <div class="text-logo font-bold mb-8 opacity-50">
             Wellness<span class="text-teal-500 font-light">Co</span>
         </div>
-        <p class="text-slate-400 text-sm font-light">Contact: winwellnesslife@gmail.com</p>
+        <p class="text-slate-400 text-sm font-light">Join us this Saturday for a new beginning.</p>
         <p class="text-[10px] text-slate-300 mt-10 tracking-[0.5em] uppercase">&copy; 2026 Rooted & Resilient Series</p>
     </footer>
 
     <script>
-        AOS.init({ once: true });
-        
-        const form = document.getElementById('wellnessForm');
-        form.addEventListener('submit', function() {
-            confetti({
-                particleCount: 150,
-                spread: 70,
-                origin: { y: 0.6 },
-                colors: ['#0d9488', '#14b8a6', '#99f6e4']
-            });
-        });
+        // 1. Initialize Scroll Animations
+        AOS.init({ once: true, duration: 1000 });
 
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-            });
+        // 2. AJAX Form Submission & Auto-Reset
+        const form = document.getElementById('wellnessForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // UI Feedback: Loading
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = "Processing...";
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    // Celebration
+                    confetti({
+                        particleCount: 150,
+                        spread: 70,
+                        origin: { y: 0.6 },
+                        colors: ['#0d9488', '#14b8a6', '#99f6e4']
+                    });
+
+                    // Success Feedback
+                    submitBtn.innerHTML = "You're Registered!";
+                    submitBtn.style.backgroundColor = "#059669";
+                    
+                    // CLEAR FORM (As requested)
+                    form.reset();
+
+                    // Reset button after delay
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.style.backgroundColor = "";
+                        submitBtn.disabled = false;
+                    }, 6000);
+
+                } else {
+                    alert("Submission failed. Please try again.");
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
+            } catch (error) {
+                alert("Network error. Please check your connection.");
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
         });
     </script>
 </body>
