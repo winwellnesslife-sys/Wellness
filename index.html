@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellnessCo | Rooted & Resilient Masterclass</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfdfd; overflow-x: hidden; }
+        
+        .hero-bg {
+            background: radial-gradient(circle at top right, rgba(20, 184, 166, 0.08), transparent),
+                        radial-gradient(circle at bottom left, rgba(15, 118, 110, 0.05), transparent);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .text-logo {
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+            color: #134e4a;
+        }
+
+        .glass-card {
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #14b8a6 !important;
+            box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.1);
+        }
+
+        /* Smooth page transitions */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <nav class="fixed top-0 w-full z-50 glass-nav py-5 px-8">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-logo font-bold">
+                Wellness<span class="text-teal-500 font-light">Co</span>
+            </div>
+            
+            <div class="flex items-center gap-8">
+                <span class="hidden lg:block text-[10px] tracking-[0.2em] font-bold text-slate-400 uppercase">Est. 2026</span>
+                <a href="#register" class="bg-teal-800 text-white text-xs font-bold tracking-widest px-6 py-3 rounded-full hover:bg-teal-900 transition-all shadow-md">REGISTER FREE</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-bg min-h-screen flex items-center justify-center px-6 relative pt-24">
+        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up" data-aos-duration="1200">
+            <p class="text-teal-600 font-bold tracking-[0.3em] text-[10px] mb-6 uppercase">A WellnessCo Signature Masterclass</p>
+            <h1 class="text-5xl md:text-8xl font-light mb-8 tracking-tight leading-tight text-slate-900">
+                Master your calm. <br><span class="italic font-normal">Rooted & Resilient.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-500 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
+                A 90-minute digital experience designed to help you break free from stress loops and build a lasting foundation of emotional peace.
+            </p>
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                <a href="#register" class="bg-slate-900 text-white px-12 py-5 rounded-full text-lg font-medium hover:bg-teal-900 transition-all transform hover:scale-105 shadow-2xl">
+                    Claim Your Free Access
+                </a>
+                <p class="text-sm text-slate-400 font-medium tracking-wide italic">Saturday, Jan 10th | Online</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-20">
+            <h2 class="text-3xl font-light text-slate-900">Support for every stage of life</h2>
+            <div class="w-16 h-1 bg-teal-500 mx-auto mt-6 rounded-full"></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-12">
+            <div class="glass-card p-12 rounded-[2rem]" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-xl font-bold mb-4 text-teal-800 tracking-tight uppercase text-xs">Ages 20 - 35</h3>
+                <p class="text-2xl font-light mb-6">Navigating the fog.</p>
+                <p class="text-slate-500 leading-relaxed font-light">Tools for identity anxiety, career burnout, and the pressure to 'arrive'.</p>
+            </div>
+            <div class="glass-card p-12 rounded-[2rem]" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="text-xl font-bold mb-4 text-teal-800 tracking-tight uppercase text-xs">Ages 36 - 50</h3>
+                <p class="text-2xl font-light mb-6">The Bridge era.</p>
+                <p class="text-slate-500 leading-relaxed font-light">Balance for those holding everything together for everyone else.</p>
+            </div>
+            <div class="glass-card p-12 rounded-[2rem]" data-aos="fade-up" data-aos-delay="500">
+                <h3 class="text-xl font-bold mb-4 text-teal-800 tracking-tight uppercase text-xs">Ages 51 - 65+</h3>
+                <p class="text-2xl font-light mb-6">New purpose.</p>
+                <p class="text-slate-500 leading-relaxed font-light">Redefining emotional vitality and finding stillness in transition.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="register" class="py-32 px-6 bg-slate-950 text-white rounded-[3rem] mx-4 md:mx-10 mb-10 overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-teal-500/10 blur-[100px] rounded-full"></div>
+        
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center relative z-10">
+            <div>
+                <h2 class="text-4xl md:text-5xl font-light mb-8 leading-tight">Secure your spot for <br><span class="text-teal-400 italic">This Saturday.</span></h2>
+                <div class="space-y-8">
+                    <div class="group">
+                        <p class="text-teal-400 font-bold mb-2 uppercase text-xs tracking-widest">01 — Practical Tools</p>
+                        <p class="text-slate-400 font-light leading-relaxed">Walk away with the 5-4-3-2-1 grounding method and a 5-minute peace routine.</p>
+                    </div>
+                    <div class="group">
+                        <p class="text-teal-400 font-bold mb-2 uppercase text-xs tracking-widest">02 — Science of Stress</p>
+                        <p class="text-slate-400 font-light leading-relaxed">Finally understand why your brain chooses anxiety and how to rewire that response.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-10 md:p-14 rounded-[3rem] text-slate-900 shadow-2xl">
+                <form id="wellnessForm" action="https://formspree.io/f/xaqnrewg" method="POST" class="space-y-6">
+                    <div class="grid gap-6">
+                        <input type="text" name="name" required placeholder="Full Name" class="w-full bg-slate-50 px-6 py-4 rounded-2xl border border-slate-100 outline-none transition">
+                        <input type="email" name="email" required placeholder="Email Address" class="w-full bg-slate-50 px-6 py-4 rounded-2xl border border-slate-100 outline-none transition">
+                    </div>
+                    <select name="age_group" class="w-full bg-slate-50 px-6 py-4 rounded-2xl border border-slate-100 outline-none appearance-none">
+                        <option>Age: 20 - 35</option>
+                        <option>Age: 36 - 50</option>
+                        <option>Age: 51 - 65+</option>
+                    </select>
+                    <textarea name="message" rows="3" placeholder="What is your biggest stress trigger?" class="w-full bg-slate-50 px-6 py-4 rounded-2xl border border-slate-100 outline-none transition"></textarea>
+                    
+                    <button type="submit" id="submitBtn" class="w-full bg-teal-600 text-white py-5 rounded-2xl font-bold text-lg hover:bg-teal-700 shadow-xl transition active:scale-95">
+                        Register for Masterclass
+                    </button>
+                    <p class="text-[10px] text-center text-slate-400 uppercase tracking-widest pt-4 font-bold">winwellnesslife@gmail.com</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-24 text-center">
+        <div class="text-logo font-bold mb-8 opacity-50">
+            Wellness<span class="text-teal-500 font-light">Co</span>
+        </div>
+        <p class="text-slate-400 text-sm font-light">Join us this Saturday for a new beginning.</p>
+        <p class="text-[10px] text-slate-300 mt-10 tracking-[0.5em] uppercase">&copy; 2026 Rooted & Resilient Series</p>
+    </footer>
+
+    <script>
+        // 1. Initialize Scroll Animations
+        AOS.init({ once: true, duration: 1000 });
+
+        // 2. AJAX Form Submission & Auto-Reset
+        const form = document.getElementById('wellnessForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // UI Feedback: Loading
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = "Processing...";
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    // Celebration
+                    confetti({
+                        particleCount: 150,
+                        spread: 70,
+                        origin: { y: 0.6 },
+                        colors: ['#0d9488', '#14b8a6', '#99f6e4']
+                    });
+
+                    // Success Feedback
+                    submitBtn.innerHTML = "You're Registered!";
+                    submitBtn.style.backgroundColor = "#059669";
+                    
+                    // CLEAR FORM (As requested)
+                    form.reset();
+
+                    // Reset button after delay
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.style.backgroundColor = "";
+                        submitBtn.disabled = false;
+                    }, 6000);
+
+                } else {
+                    alert("Submission failed. Please try again.");
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
+            } catch (error) {
+                alert("Network error. Please check your connection.");
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
